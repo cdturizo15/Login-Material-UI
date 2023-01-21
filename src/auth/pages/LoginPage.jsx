@@ -1,12 +1,24 @@
 import * as React from 'react';
+import { useContext } from 'react';
+import { Navigate, redirect, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 
 export const LoginPage = () => {
-  return (
-      <>
-        <div className='row-bg'>
+  
+  const { login } = useContext(AuthContext)
+  const navigate = useNavigate()
 
-          <div className='form-row-login '>
+  const onLogin = () => {
+    login("cris")
+    navigate('/', {replace:true})
+  }
+  return (
+    <>
+      <div className='row-bg'>
+        <div className='form-row-login '>
+          <form >
+
             <div className='form-container'>
               <h3 className='mb-4'>Inicio de sesion</h3>
               <div className='form-group  mb-3'>
@@ -18,15 +30,15 @@ export const LoginPage = () => {
                 <label className='form-label' >Contraseña</label>
                 <input className='form-control ' type="password" />
               </div>
-              <button className='btn btn-primary'>Ingresar</button>
+              <button onClick={() => onLogin()} className='btn btn-primary'>Ingresar</button>
             </div>
+          </form>
 
+        </div>
 
-          </div>
-
-          <div  className='bg-image-login '>
-          </div>
-          </div>
-      </>
+        <div className='bg-image-login '>
+        </div>
+      </div>
+    </>
   )
 }

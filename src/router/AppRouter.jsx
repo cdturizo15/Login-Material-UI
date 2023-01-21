@@ -1,18 +1,26 @@
-import { Route, Routes } from 'react-router-dom';
-
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthRoutes } from '../auth/routes/AuthRoutes';
 import {DashboardRoutes} from '../dashboard/routes/DashboardRoutes'
+import { PrivateRoute } from './PrivateRoute';
+import { PublicRoute } from './PublicRoute';
 
 
 export const AppRouter = () => {
   return (
     <Routes>
 
-        {/* Login y Registro */}
-        <Route path="/auth/*" element={ <AuthRoutes /> } />
+        <Route path="auth/*" element={
+          <PublicRoute>
+            <AuthRoutes />
+          </PublicRoute>
+        } />
 
-        {/* JournalApp */}
-        <Route path="/*" element={ <DashboardRoutes /> } />
+        <Route path="/*" element={
+          <PrivateRoute>
+            <DashboardRoutes /> 
+          </PrivateRoute>
+        } />
+
 
     </Routes>
   )
