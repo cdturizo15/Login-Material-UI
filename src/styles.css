@@ -11,6 +11,20 @@
     background-image: url(../public/bg-ui.jpg); ;
 }
 
+.bg-dashboard{
+    height: calc(100vh - 76px);
+    background-color: rgba(245, 245, 245);
+    width: 100%;
+    padding: 20px;
+}
+
+.table-users{
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
 .form-row-login{
     width: 30%;
     height: 100vh;
@@ -32,4 +46,13 @@
     align-items: center;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     padding: 20px;
+}
+
+.navbar-color{
+    background-color: #d32f2f;
+
+}
+
+.icon-size{
+    font-size: 20px;
 }
